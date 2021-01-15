@@ -1,0 +1,175 @@
+<!-- this is GUI where the user is needed to key in their reflection and click submit--> 
+          
+          <html>
+                <head>
+                <style>
+                @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+                * {
+                   margin: 0;
+                   padding: 0;
+                   box-sizing: border-box;
+                   -webkit-box-sizing: border-box;
+                   -moz-box-sizing: border-box;
+                   -webkit-font-smoothing: antialiased;
+                  -moz-font-smoothing: antialiased;
+                   -o-font-smoothing: antialiased;
+                  font-smoothing: antialiased;
+                  text-rendering: optimizeLegibility;
+                }
+                .div1{
+                  //width: 500px;
+                  width: 100%;
+                  height: 100px;
+                  line-height: 100px;
+                  //border: 1px solid green;
+                  border-radius: 8px;
+                  //box-sizing: border-box;
+                  border-style: hidden;
+                  background-color:#93AC9F;
+                  font-size:30px;
+                  font-family:'Segoe UI';
+                  font-weight:bold;
+                  //word-break: break-all;
+                  color: #23553B;
+                }
+                body {
+                    //background-color:white;
+                    background-color:93AC9F;
+                    font-family:'Segoe UI'
+                    }
+                
+                @font-face {
+                    font-family:'Material Icons';
+                    font-style: normal;
+                    font-weight: 400;
+                    src: url(https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+                }
+                .form{
+                   
+                    font:400 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                    border: 2px solid #fff;
+                }
+                textarea{
+                    background-color:white;
+                    font-weight:100;
+                    //font-style:italic;
+                    font-family:'Open Sans';
+                    font-size:16px;
+                    border-color: Transparent;
+                    color:#23553B;
+                    paddihng:0px;
+                    //border: 3px solid #ccc;
+                    border-style:hidden;
+                    overflow: auto
+                    resize: both;
+                    outline-color:none;
+                    outline:none;
+                
+                    }
+                
+                input[type=text] {
+                    background-color:white;
+                    font-weight:400;
+                    font-style:italic;
+                    color:grey;
+                    paddihng:5px;
+                    #border: 3px solid #cccccc;
+                    border: 3px solid #F0F0F0;
+                    }
+                .title{
+                     font-family:'Material Icons';
+                    // font-weight: 400;
+                     color:grey;
+
+                    }
+                .container {
+                    background-color: #F9F9F9;
+                    max-width: 800px;
+                    color: #777;
+                    width: 100%;
+                    margin: 0 auto;
+                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+                }
+                .head{
+                     font-family: "Roboto", Helvetica, Arial, sans-serif;
+                     border:none;
+                     //font-size:20px;
+                     font-weight:500;
+                     font-style:normal;
+                     background-color:transparnt;
+                     color:#777; 
+                     line-height: 1;
+                    }
+                .clause{
+                     font-family: "Roboto", Helvetica, Arial, sans-serif;
+                     border:none;
+                     font-size:16px;
+                     font-weight:500;
+                     font-style:italic;
+                     background-color:transparnt;
+                     color:#777;
+                     line-height: 1;
+                    }
+                button[type="button"],
+                [type="reset"],
+                [type="submit"]{  
+                    #background-color: #28a745; /* Green */
+                    #background-color:#177b63;
+                    background-color:#23553B;
+                    width:29.6%;
+                    height:5%;
+                    border: none;
+                    color: #fff;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight:bold;
+                    font-family: "Roboto", Helvetica, Arial, sans-serif;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    //box-shadow: inset 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    -webkit-appearance: button;
+                    border-radius: 4px;
+                    }
+                button[type="button"],
+                [type="reset"]:hover,
+                [type="submit"]:hover{
+                background-color: #fff; 
+                //color: #177b63;
+                color: #23553B;
+                }
+                </style> 
+                </head> 
+                <div class='title'> <title>Learning By Experience</title></div>
+                <body>
+                <center> 
+                <BR>
+                <img src="../static/headerSkillsetv2.jpg" width =1000 >
+                <fieldset style="background-color: white; border: 4px 23553B solid; border-radius: 8px;  width: 950px;text-align: left;font-size: 16px; align:bottom;">
+                     <!--
+                    <legend style="font-size: 20px; border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Share your Experience</B></legend>      
+               
+                <div class="container">-->
+                <form method ="post" id=form, name=form> 
+                <!--
+                <input type="text", placeholder="Nick Name" size=75>
+                </p>
+                <H3>Softskill Predictor: Your action becomes You</H3>
+                 -->
+                <BR>
+                <textarea name="reflection" rows =16%, cols= 110%,id="textarea", placeholder="Talk about one experience where you face challenges. Talk about the challenges faced. Which soft skills did you engage with to overcome these challenges, and how did you engage those soft skills?"></textarea>
+                </fieldset>
+                <input type="submit", id="submit", value="Generate my skill insight">
+                <input type="reset", id="reset"><BR>
+                <img src="../static/smallpoweredbyskilio.jpg" height =4% align=left>
+
+                </form>
+                <BR>
+                
+                 <!--
+                 </div>-->
+                 
+                 </center>
+                 
+            <HTML>

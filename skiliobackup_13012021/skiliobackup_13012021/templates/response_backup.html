@@ -1,0 +1,229 @@
+<!-- this is the response file-->
+
+
+<html><head>
+<style> 
+    body{
+        font-size:12px;
+        font-family:'Segoe UI'
+       }    
+   p.round1{
+       border:2px solid green;
+       border-radius: 8px;
+       background-color:white;
+       
+    }
+    
+   p.round2{
+       border:2px solid green;
+       border-radius: 8px;
+       color:white;
+       background-color:solid green;
+       
+    }
+    
+    
+   table{
+       border:2px 23553B;
+       border-radius: 8px;
+       background-color:white;
+    }
+    
+   TH{
+       border:2px 23553B;
+       border-radius: 8px;
+       background-color:23553B;
+       color:white;
+    }
+    
+    TD{
+       border:2px 93AC9F;
+       border-radius: 8px;
+       color:black;
+       background-color:white;
+
+    }
+    .div1 {
+      width: 400px;
+      height: 200px;
+      border: 1px solid green;
+      border-radius: 8px;
+      box-sizing: border-box;
+      word-break: break-all;
+    }
+       
+       
+    .div2{
+      width: 500px;
+      height: 200px;
+      border: 1px solid green;
+      border-radius: 8px;
+      box-sizing: border-box;
+      word-break: break-all;
+    }             
+   
+</style>
+
+<script>
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	dataPointWidth: 50,
+	theme: "light2",
+	
+	title:{
+		text:"Blind-Spots and Strength",
+		fontSize:14,
+		fontFamily:"Segoe UI",
+		fontWeight:"normal",
+		
+	},
+	axisX:{
+		interval: 1
+		
+	},
+	axisY:{
+		//interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "white",
+		title: "Level",
+		lineThickness:1
+	},
+	data: [{
+		type: "column",
+		name: "companies",
+		axisYType: "primary",
+		color: "#71c163",
+		dataPoints: [
+			{ y:{{Teamwork}}, label: "Teamwork" },
+			{ y:{{Communication}}, label: "Communication" },
+			{ y:{{Adaptability}}, label: "Adaptability" },
+			{ y:{{willingnesstolearn}}, label: "willingnesstolearn" },
+			{ y:{{leadership}}, label: "Leadership" },
+			
+		]
+	}]
+	
+	
+});
+chart.render();
+
+var data = [{
+  type: "sunburst",
+  labels: ["Eve", "Cain", "Seth", "Enos", "Noam", "Abel", "Awan", "Enoch", "Azura"],
+  parents: ["", "Seth", "Eve", "Seth", "Seth", "Eve", "Eve", "Awan", "Eve" ],
+  values:  [10, 14, 12, 10, 2, 6, 6, 4, 4],
+  outsidetextfont: {size: 20, color: "#377eb8"},
+  leaf: {opacity: 0.4},
+  marker: {line: {width: 2}},
+}];
+
+var layout = {
+  margin: {l: 0, r: 0, b: 0, t: 0},
+  width: 500,
+  height: 500
+};
+
+
+Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true})
+
+myPlot = document.getElementById("myDiv");
+
+
+require([
+  "ccc/pvc", 
+  "ccc/def", 
+  "ccc/protovis"
+], function(pvc, def, pv) {
+
+    var cdaData = {
+        metadata: [
+            {colName: 'group',    colType: 'string'},
+            {colName: 'category', colType: 'string'},
+            {colName: 'value',    colType: 'number'}
+        ],
+        resultset: [
+            ['A', 'a', 10],
+            ['A', 'b', 15],
+            ['A', 'c', 15],
+            ['A', 'd', 10],
+            ['A', 'e', 20],
+            ['A', 'f', 10],
+            ['A', 'g',  5],
+            ['B', 'h',  5],
+            ['B', 'i',  5],
+            ['B', 'j',  5]
+        ]
+    };
+
+    new pvc.SunburstChart({
+        canvas: 'cccExample',
+        width:  400,
+        height: 400,
+
+        // Data source
+        crosstabMode: false,
+
+        // Main plot
+        valuesVisible: true,
+
+        // Chart/Interaction
+        selectable: true,
+        hoverable:  true
+    })
+    .setData(cdaData)
+    .render();
+});
+
+
+}
+
+
+</script>
+
+
+</head>
+<body>
+<TABLE>
+<TR><TD>
+    <table>
+    <!--<TR><TH align=left><B>Date:</TH><TR> 
+    <TR><TD>{{today}}</TD></TR></table>-->
+    <!-- <B>Reflection:</B>{{reflection}}</p>-->
+    <table>
+    <TR><TH align=left>Task Assigned:</TH></TR><TR><TD><div class="div1">{{context}}</div></TR><TD>
+    </table>
+    <Table>
+    <TR><TH align=left>What needs Fixing :</TH></TR><TR><TD align=left><div class="div2">{{neg}}</div></TD></TR>
+    </table>
+    <table>    
+    <TR><TH align=left>What You did well:</TH></TR><TR><TD align=left><div class="div2">{{behavior}}</div></TD></TR>
+    </table>
+    <table>
+    <TR><TH align=left>Predicted Softskills to Meet:</TH></TR><TR><TD align=left><div class="div1">{{softskill}}</div></TD></TR>
+    </table>
+     <!--<BR><B>Dictionary </B><BR>{{dictionary}}</p>-->
+     <center>
+</Td></TR>
+</TABLE>
+
+<H1> Today Progress </H1>
+<div id="chartContainer" style="height: 370px; width: 30%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js">barchart</script>
+
+
+<H1> Progress over Time  </H1>
+<img src="/barchart/" alt="Barchart",title ="Softskill", heights="400", width="600">
+<img src="/journey/" alt="Barchart",title ="Softskill", heights="400", width="600">
+<img src="/todayPie/" alt="Pie Chart",title ="Softskill", heights="400", width="600">
+dictionary:{{dictionary}}
+
+
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<div id="myDiv", style="height: 370px; width: 30%;">hih</div>
+
+
+
+
+</body></html>

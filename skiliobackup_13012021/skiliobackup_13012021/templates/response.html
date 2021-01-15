@@ -1,0 +1,881 @@
+<!-- This will return output of the AI results. the graphs and C.A.R--> 
+
+
+<html><head>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<style> 
+
+    .separate_border {
+         width: 50%;
+         margin: auto;
+         margin-top: 5%;
+         margin-bottom: 5%;
+         //border: 3px dashed #1A85FD;
+         border-top: 3px solid green;
+
+    }
+    .tip{
+        font-size:18px;
+        color:green;
+        font-weight: bold;
+    }
+
+    body{
+        font-size:14px;
+        font-family:'Segoe UI';
+        //background-color:93AC9F;
+        background-color:white;
+       
+       }    
+   p.round1{
+       border:2px solid green;
+       border-radius: 8px;
+       color:solid green;
+       background-color:white;
+       
+    }
+    
+   p.round2{
+       border:2px solid green;
+       border-radius: 8px;
+       color:white;
+       background-color:solid green;
+       
+    }
+    
+    
+   TABLE{
+       //border:2px 23553B;
+      // border-radius: 8px;
+       margin: right;
+       border-style: hidden;
+       width: 1250px;
+       background-color:white;
+       text-align: left;
+       align:right; 
+       border-collapse: collapse; 
+    }
+    
+   TH{
+       //border:2px 23553B;
+      // border-radius: 8px;
+       border: solid thin;
+       background-color:white;
+       color:black;
+    }
+    
+    TD{
+       //border:0px 93AC9F;
+       border:solid thin;
+       align:right; 
+       //border-radius: 8px;
+       color:black;
+       background-color:white;
+
+    }
+    
+     .style1 {
+       //border:2px 23553B;
+      // border-radius: 8px;
+       align:right;
+       border-style:hidden;
+       background-color:white;
+       color:black;
+    }
+    
+    
+    
+    
+    
+    .div0 {
+      width: 1400px;
+      height: 50px;
+      border: 1px solid green;
+      border-radius: 8px;
+      box-sizing: border-box;
+      word-break: break-all;
+    }
+       
+    .div1{
+      //width: 500px;
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      //border: 1px solid green;
+      border-radius: 8px;
+      //box-sizing: border-box;
+      border-style: hidden;
+      background-color:#93AC9F;
+      font-size:30px;
+      font-family:'Segoe UI';
+      font-weight:bold;
+      //word-break: break-all;
+      color: #23553B;
+    }
+
+    .div2{
+      width: 500px;
+      height:50px;
+      text-align: left;
+      border: 1px 'green';
+      background-color: 'green'; 
+      border-radius: 8px;
+      box-sizing: border-box;
+      word-break: break-all;
+      font-weight: bold;
+    }    
+    .container {
+      max-width: 800px
+      background-color: #F9F9F9;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }   
+    
+    .matched {
+      background-color: red;
+      font-weight: bold;
+    }      
+   
+</style>
+
+<script>
+
+
+
+
+//progress report - Report overview
+
+
+window.onload = function () {
+
+
+
+var data = [{
+  //y: [{{Teamwork}}, {{Communication}}, {{Adaptability}},{{willingnesstolearn}},{{leadership}}],
+  y: [{{noTeamwork}}, {{noCommunication}}, {{noAdaptability}},{{nowillingnesstolearn}},{{noleadership}}],
+  x: ['Teamwork', 'Communication', 'Adaptability','Willingness To Learn', 'Leadership'],
+  width:[0.5,0.5,0.5,0.5,0.5],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    //color:'93AC9F',
+    color:'71c163',
+    opacity: 0.6,
+    line: {
+      //color: 'rgb(8,48,107)',
+      color:'71c163',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  //title:"Frequency of Behavior",
+  height: 500,
+  width: 750,
+  //width: 450,
+  yaxis: {autorange: false, range:[0, 5],showgrid:false,automargin: true},
+  xaxis: {showgrid:false,automargin: true,tickangle: -45},
+  bargap: 0.2
+  
+};
+
+
+Plotly.newPlot('Softskill', data, layout);
+
+
+
+
+
+
+//details of Competency Report
+
+//Progress plot
+
+var meet = {
+  x: [{{Teamwork}}, {{Communication}}, {{Adaptability}},{{willingnesstolearn}},{{leadership}}],
+  y: ['Teamwork', 'Communication', 'Adaptability','Willingness To Learn', 'Leadership'],
+  type: 'bar',
+  orientation:'h',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.9,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+};
+
+
+var notmeet = {
+  x: [ 1-{{Teamwork}},1-{{Communication}},1-{{Adaptability}},1-{{willingnesstolearn}},1-{{leadership}}],
+  y: ['Teamwork', 'Communication', 'Adaptability','Willingness To Learn', 'Leadership'],
+  type: 'bar',
+  orientation:'h',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.1,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+};
+
+var data = [meet,notmeet];
+
+var layout = {
+  title:"Progress",
+  height: 400,
+  width: 800,
+  barmode:'stack',
+  showlegend: false,
+  margin: {
+    l: 120,
+    r: 20,
+    t: 100,
+    b: 70
+  },
+  yaxis: {showgrid:false,automargin: true},
+  xaxis: {showgrid:false,automargin: true}
+};
+
+Plotly.newPlot('Progress', data, layout);
+
+
+
+
+
+//Radar Chart - spider chart/radar chart
+
+//overview 
+
+
+data6 = [{
+  type: 'scatterpolar',
+  r: [{{Teamwork}}, {{Communication}}, {{Adaptability}},{{willingnesstolearn}},{{leadership}}],
+  theta: ['Teamwork','Communication','Adaptability','Willingness to Learn','Leadership'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 1]
+    }
+  },
+  showlegend: false,
+  title:"Blindspots And Strength"
+};
+
+Plotly.newPlot('radarSoftskill', data6, layout);
+
+
+//Teamwork
+
+data7 = [{
+  type: 'scatterpolar',
+  r: [{{Adventurous}},{{Analytical}},{{ConsensusBuilder}},{{Imaginative}},{{PlanExecutor}},{{Resilient}},{{TargetSetter}},{{Technical}}],
+  theta: ['Adventurous','Analytical','Consensus Builder', 'Imaginative', 'Plan Executor', 'Resilient','Target Setter','Technical'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 5]
+    }
+  },
+  showlegend: false,
+  title:"Teamwork"
+};
+
+Plotly.newPlot('teamwork', data7, layout);
+
+//Communication - spider chart/radial chart
+
+data8 = [{
+  type: 'scatterpolar',
+  r: [{{Clarity}},{{Considerate}},{{Courteous}},{{Credible}}],
+  theta: ['Clarity','Considerate','Courteous', 'Credible'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 5]
+    }
+  },
+  showlegend: false,
+  title:"Communication"
+};
+
+Plotly.newPlot('communication', data8, layout);
+
+
+//Willingness To Learn - spider chart/radial chart
+
+data9 = [{
+  type: 'scatterpolar',
+  r: [{{Coachabilityteachability}},{{Humble}},{{IntellectuallyCurious}},{{ResponsibleForOneOwnGrowth}}],
+  theta: ['Coachability/ teachability','Humble','Intellectually Curious', 'Responsible for one\'s growth'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 5]
+    }
+  },
+  showlegend: false,
+  title:"WillingnessToLearn"
+};
+
+Plotly.newPlot('WillingnessToLearn', data9, layout);
+
+//Adaptability - spider chart/radial chart
+
+data10 = [{
+  type: 'scatterpolar',
+  r: [{{Curiosity}},{{FutureOriented}},{{OpenMinded}},{{Resourceful}},{{RiskTaker}}],
+  theta: ['Curiosity','Future-Oriented','Open-minded', 'Resourceful','Risk-Taker'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 5]
+    }
+  },
+  showlegend: false,
+  title:"Adaptability"
+};
+
+Plotly.newPlot('Adaptability', data10, layout);
+
+//Leadership- spider chart/radial chart
+
+data11 = [{
+  type: 'scatterpolar',
+  r: [{{Empathetic}},{{Empowering}},{{OneOfIntegrityAndFairness}},{{Synergiser}},{{Visionary}}],
+  theta: ['Empathetic','Empowering','One of Integrity And Fairness', 'Synergiser','Visionary'],
+  fill: 'toself'
+}];
+
+layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [0, 5]
+    }
+  },
+  showlegend: false,
+  title:"Leadership"
+};
+Plotly.newPlot('Leadership', data11, layout);
+
+
+
+
+//barplot 
+
+
+var data1 = [{
+  y: [{{Adventurous}},{{Analytical}},{{ConsensusBuilder}},{{Imaginative}},{{PlanExecutor}},{{Resilient}},{{TargetSetter}},{{Technical}}],
+  x: ['Adventurous','Analytical','Consensus Builder', 'Imaginative', 'Plan Executor', 'Resilient','Target Setter','Technical'],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.6,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  title:"Teamwork",
+  height: 400,
+  width: 600,
+  yaxis: {autorange: false, range:[0, 10],showgrid:false,title:'Behavior Frequency',automargin: true},
+  xaxis: {showgrid:false,tickangle: -45,automargin: true}
+};
+
+Plotly.newPlot('barPlotTeamwork', data1, layout);
+
+
+
+data2 = [{
+  y: [{{Clarity}},{{Considerate}},{{Courteous}},{{Credible}}],
+  x: ['Clarity','Considerate','Courteous', 'Credible'],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.6,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  title:"Communication",
+  height: 400,
+  width: 600,
+  yaxis: {autorange: false, range:[0, 10],showgrid:false,title:'Behavior Frequency'},
+  xaxis: {showgrid:false,tickangle: -45,automargin: true}
+};
+
+
+Plotly.newPlot('barPlotCommunication', data2, layout);
+
+
+
+data3 = [{
+  y: [{{Coachabilityteachability}},{{Humble}},{{IntellectuallyCurious}},{{ResponsibleForOneOwnGrowth}}],
+  x: ['Coachability','Humble','Intellectually Curious','Responsible For Own Growth'],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.6,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  title:"Willingness To Learn",
+  height: 400,
+  width: 600,
+  yaxis: {autorange: false, range:[0, 10],showgrid:false,title:'Behavior Frequency',automargin: true},
+  xaxis: {showgrid:false,tickangle: -45,automargin: true},
+  bargap: 0.15
+  
+};
+
+Plotly.newPlot('barPlotWillingnessToLearn', data3, layout);
+
+//Adaptability
+
+data4 = [{
+  y: [{{Curiosity}},{{FutureOriented}},{{OpenMinded}},{{Resourceful}},{{RiskTaker}}],
+  x: ['Curiosity','Future-Oriented','Open-minded', 'Resourceful','Risk-Taker'],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.6,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  title:"Adaptability",
+  height: 400,
+  width: 600,
+  yaxis: {autorange: false, range:[0, 10],showgrid:false,title:'Behavior Frequency',automargin: true},
+  xaxis: {showgrid:false,tickangle: -45,automargin: true}
+};
+
+Plotly.newPlot('barPlotAdaptability', data4, layout);
+
+
+//Leadership
+
+data5 = [{
+  y: [{{Empathetic}},{{Empowering}},{{OneOfIntegrityAndFairness}},{{Synergiser}},{{Visionary}}],
+  x: ['Empathetic','Empowering','One of Integrity And Fairness', 'Synergiser','Visionary'],
+  type: 'bar',
+  marker: {
+    //color: 'rgb(158,202,225)',
+    color:'93AC9F',
+    opacity: 0.6,
+    line: {
+      color: 'rgb(8,48,107)',
+      width: 1.5
+    }
+  }
+}];
+
+var layout = {
+  title:"Leadership",
+  height: 400,
+  width: 600,
+  yaxis: {autorange: false, range:[0, 10],showgrid:false,title:'Behavior Frequency',automargin: true},
+  xaxis: {showgrid:false,tickangle: -45,automargin: true}
+  
+};
+
+Plotly.newPlot('barPlotLeadership', data5, layout);
+
+
+
+
+
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+<!--<div id="chartContainer" style="height: 370px; width: 30%;"></div>-->
+<!--script src="https://canvasjs.com/assets/script/canvasjs.min.js">barchart</script>-->
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<!--overview of each competency met' 
+<div class="container">-->
+
+<center>
+<!--
+<div class ="div1">
+
+<font color="white">Your Full</font> Soft Skills Insights Report:</div>
+-->
+
+<img src="{{headerImg}}" width=100%>
+<Br>
+
+
+
+
+
+<!--
+<TABLE><TR><TH COLSPAN=2><H4>Your Full Softskill Report:</H4></TH></TR>
+
+<TR>  <TD COLSPAN=2>
+   <table>
+            <TR><TH align=left>Task Assigned:</TH></TR><TR><TD><div class="div1">{{context}}</div></TR><TD>
+    </table>
+    </TD>
+    <TD colspan=2>
+     <table>
+            <TR><TH align=left>Predicted Softskills to Meet:</TH></TR><TR><TD align=left><div class="div1"><p id='demo'>{{softskill}}</p></div></TD></TR>
+      </table> 
+</TD></TR>
+<TR>
+    <TD>
+        <div id="Progress", style="height: 400px; width: 100%;"></div>
+    </TD>
+    <TD>
+     <table>
+            <TR><TH align=left>Softskill Behavioral Competency Demonstrated:</TH></TR><TR><TD align=left><div class="div2"><p id='demo'>{{softskill}}</p></div></TD></TR>
+      </table>
+    </TD>
+</TR>
+<TR>
+   <TD class="style1">  --> 
+   
+   <TABLE><TR>
+       <!--
+       <TD><div id="radarSoftskill", style="height: 370px; width: 100%;"></div></TD>-->
+       <TD rowspan=2 valign=Top class="style1" >
+       <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 750px; margin:auto">
+           <legend style="border: 4px 23553B solid; border-radius: 4px; margin-left: 0.8em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Points You have Scored for Each Soft Skill:</B></legend>
+           <div id="Softskill", style="height: 500px; width: 750px;"></div>
+      </fieldset>
+      <div class="div2">***Hover over parts of the graph</div>
+      
+      </TD>
+      <TD class="style1" valign=Top>
+         <!--
+         <TABLE>
+\
+            <TR><TH align=left>Softskill Behavioral Competency Demonstrated:</TH></TR><TR><TD align=left><div class="div1"><p id='demo'>{{softskill}}</p></div></TD></TR>
+             <TR><TD class="style1" valign=Top>
+             -->
+             <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 450px; margin:auto">
+                 <legend style="border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Softskill Behavioral Competency Demonstrated:</B></legend>
+                     <strong><p id='demo'>{{softskill}}</p></strong>
+             
+            
+             </fieldset>
+              <!--
+              </TD></TR>
+              <TR><TH align=left>Softskill Insight (C.A.R):</TH></TR><TR><TD align=left><div class="div2"><p id='demo2'>{{behavior}}</p></div></TD></TR>
+             <TR><TD class="style1" valign=Top>-->
+             <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 450px; vertical-align: text-top; margin:auto">
+                 <legend style="border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Resume Experience Descriptors:</B></legend>
+                     <p id='behaviors'>{{behavior}}</p>
+             </fieldset>
+             <div class="div2">***Copy & paste this into your CV under your relevant experience!</div>
+             
+            <!--
+             </TD><TR>
+         </TABLE>-->
+  
+        </TD></TR>
+   </TABLE> 
+           <!--
+       <TR>
+   
+       <TD COLSPAN=2 class="style1" valign=Top>
+           
+           <p></p>
+           <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px">
+             <legend style="border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>All Behavioral Competencies Demonstrated</B></legend>
+             <TABLE>
+                 <TR>
+                     <TH>SOFTSKILL</TH><TH>BEHAVIORAL COMPETENCY</TH><TH>DEFINITION</TH><TH>POINTS</TH>  
+                 </TR>
+                 <TR>
+                    <TD>{{Softskills}}</TD><TD>{{BCs}}</TD><TD>{{Defines}}</TD><TD></TD>
+                     
+                   <p id='demo4'>{{reportNoOfFreq}}</p>
+                   
+          
+           </fieldset>
+           
+       
+           <p id='demo3'></p>    
+       </TD></TR>  -->
+<!--     
+       
+      </TABLE>
+
+  </TD> 
+</TR>
+
+
+
+
+<TR>
+    <TD>
+        <Table>
+            <TR><TH align=left>Task Assigned/Problem faced:</TH></TR><TR><TD align=left><div class="div2">{{context}}:{{neg}}</div></TD></TR>
+        </table>       
+    </TD>
+</TR>
+ <TR><TD>
+ </Td></TR>
+</TABLE>-->
+
+
+<hr class="separate_border">
+ <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>All Behavioral Competencies Demonstrated</B></legend>
+             <!--
+             <TABLE>
+                 <TR>
+                     <TH>SOFTSKILL</TH><TH>BEHAVIORAL COMPETENCY</TH><TH>DEFINITION</TH><TH>POINTS</TH>  
+                 </TR>
+                 <TR>
+                    <TD>{{Softskills}}</TD><TD>{{BCs}}</TD><TD>{{Defines}}</TD><TD></TD>-->
+                     
+                   <p id='competencyDemonstrated'>{{reportNoOfFreq}}</p>
+                   
+                <!--
+                 </TR>
+            </TABLE>-->
+ </fieldset>
+
+
+<hr class="separate_border">
+<fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Moving forward, What Can You Work On?</B></legend>
+        <p id='strengthImprovement'>{{strengthImprovement}}</p>
+        <dl>
+        <dt>&nbsp<div class='tip'>TIPS!</div></dt>
+            <dd>- Find out the Context. </dd>
+            <dd>- Use your strength.</dd>
+        </dl>    
+</fieldset>
+
+<hr class="separate_border">
+<fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 0em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Other Useful Resources</B></legend>
+    <center>
+    <a href="https://medium.com/skilio/leadership/home"> <img src="{{leadershipImg}}"></a>
+    <a href="https://medium.com/skilio/medium-com-skilio-teamwork/home"><img src="{{teamworkImg }}"></a>
+    <a href="https://medium.com/skilio/willingnesstolearn/home"><img src="{{willingnesstolearnImg}}"></a>
+    <a href="https://medium.com/skilio/adaptability/home"><img src="{{adaptabilityImg}}"></a>
+    <a href="https://medium.com/skilio/communication/home"><img src="{{communicationImg}}"></a>
+    
+    </center>
+</fieldset>
+<!--
+<p id="test">'test; is good. 'June; is good</p>
+
+<H3>Common interview questions and how you can answer them </H3> 
+ <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>What are your Strength?</B></legend>
+    <p id='strength'> {{strength}}</p>
+</fieldset>
+<p></p>
+<fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>What are your Areas of Improvement?</B></legend>
+    <p id='areaForImprovement'>{{areaForImprovement}}</p> 
+</fieldset>
+<p></p>
+<fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 1250px;text-align: left;font-size: 16px;">
+    <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>What role do you typically play for the team?</B></legend>
+    <p id='role'>{{role}}</p>
+ </fieldset>
+
+<H3>Moving forward, what can you work on? </H3> 
+
+<TABLE>
+<TR>
+    <TD class="style1" align="left"> 
+    <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 600px;text-align: left;font-size: 16px;">
+        <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Work on your strength</B></legend>
+        <p id='strengthImprovement'>{{strengthImprovement}}</p>    
+    </fieldset>
+    </TD>
+    <TD class="style1">
+    <fieldset style="border: 4px 23553B solid; border-radius: 4px; width: 620px;text-align: left;font-size: 16px;">
+        <legend style="font-size: 16px; border: 4px 23553B solid; border-radius: 4px; margin-left: 1em; padding: 0.1em 0.9em; background-color:23553B; color:white"><B>Improve on your blindspots</B></legend>
+        <p id='blindspot'>{{blindspot}}</p>     
+    </fieldset>
+    </TD>
+</TR>
+</TABLE>
+</Center>
+
+
+<!--
+<TABLE>
+<TH COLSPAN=2><H5>BreakDown of Each Softskill</H5></TH>
+<TR>
+    <TD>
+        <div id="barPlotTeamwork", style="height: 400px; width: 100%;"></div> 
+    </TD>
+    <TD>
+        <div id="barPlotCommunication", style="height: 400px; width: 100%;"></div>
+    </TD>
+</TR>
+<TR>
+    <TD>
+        <div id="barPlotWillingnessToLearn", style="height: 400px; width: 100%;"></div>
+    </TD>
+    <TD>
+    <div id="barPlotAdaptability", style="height: 400px; width: 100%;"></div>
+    </TD>
+</TR>
+<TR>
+    <TD>  
+        <div id="barPlotLeadership", style="height: 400px; width: 100%;"></div>
+    </TD>
+</TR>
+</TABLE>-->
+
+
+<!--<p id='demo'>{{behavior}}</p>-->
+
+<script>
+var elem = document.getElementById('demo');
+elem.innerHTML = elem.textContent.split('.').map(function(el) {
+  return  el + '<BR>';
+}).join('');
+
+
+
+var elem = document.getElementById('behaviors');
+//elem.textContent=elem.textContent.replace(new RegExp("[ ",g),"<B>");
+//elem.textContent=elem.textContent.replace(new RegExp("] ",g),"</B>");
+elem.innerHTML = elem.textContent.split('.').map(function(el) {
+  return '<BR>' + el;
+}).join('');
+
+
+
+var elem3 =document.getElementById('competencyDemonstrated');
+//elem3.innerHTML="<table border=1><TR><TD>"+elem3.textContent.split(":")[0]+"</TD></TR></TABLE>";
+elem3.textContent=elem3.textContent.replace(/:/g,"</TD><TD>");
+elem3.textContent=elem3.textContent.replace(/\n/g,"<TR><TD>");
+//elem3.textContent=elem3.textContent.replace(/./g,"</TD></TR>");
+elem3.innerHTML="<table><TR><TH>SOFTSKILL</TH><TH>BEHAVIORAL COMPETENCY</TH><TH>DEFINITION</TH><TH>POINTS</TH></TR>"+elem3.textContent.replace(".","</TD></TR>")+"</TABLE>";
+//elem3.innerHTML="<table><TR><TH>SOFTSKILL</TH><TH>BEHAVIORAL COMPETENCY</TH><TH>DEFINITION</TH><TH>POINTS</TH></TR>"+elem3.textContent+"</TABLE>";
+
+/*var elem2 =document.getElementById('strength');
+elem2.innerHTML=elem2.textContent.replace(/- /g,"<BR>- ");
+
+
+var elem4 =document.getElementById('areaForImprovement');
+elem4.innerHTML=elem4.textContent.replace(/- /g,"<BR>- ");
+
+
+var elem5 =document.getElementById('role');
+elem5.innerHTML=elem5.textContent.replace(/- /g,"<BR>- ");*/
+
+
+
+var elem6 =document.getElementById('strengthImprovement');
+elem6.textContent=elem6.textContent.replace(/- /g,"<li>");
+elem6.innerHTML="<ol>"+elem6.textContent.replace(".","</li>")+"</ol>";
+
+/*var elem7 =document.getElementById('blindspot');
+elem7.textContent=elem7.textContent.replace(/- /g,"<li>");
+elem7.innerHTML="<ol>"+elem7.textContent.replace(".","</li>")+"</ol>";*/
+
+var elem6 =document.getElementById('behaviors');
+//elem6.textContent =elem6.textContent.replace("(","<B>");
+//elem6.innerHTML =elem6.textContent.replace(")","</B>");
+elem6.textContent =elem6.textContent.replace(/- /g,"<BR>-<strong>");
+//elem6.textContent =elem6.textContent.replace(/'/g,"<strong>");
+elem6.innerHTML =elem6.textContent.replace(/: /g,"</strong>: ");
+
+</script>
+
+
+<!--
+<H1>BreakDown of Each Softskill - Bar plot</H1> 
+
+<div id="barPlotTeamwork", style="height: 500px; width: 100%;"></div> 
+<div id="barPlotCommunication", style="height: 500px; width: 100%;"></div>
+<div id="barPlotWillingnessToLearn", style="height: 500px; width: 100%;"></div>
+<div id="barPlotAdaptability", style="height: 500px; width: 100%;"></div>
+<div id="barPlotLeadership", style="height: 500px; width: 100%;"></div>
+    
+
+
+<H1>BreakDown of Each Softskill - Radar plot</H1> 
+<div id="teamwork", style="height: 500px; width: 100%;"></div> 
+<div id="communication", style="height: 500px; width: 100%;"></div>
+<div id="WillingnessToLearn", style="height: 500px; width: 100%;"></div>
+<div id="Adaptability", style="height: 500px; width: 100%;"></div>
+<div id="Leadership", style="height: 500px; width: 100%;"></div>
+-->
+
+
+<!--
+</div>
+
+<H1> Progress over Time  </H1>
+<img src="/barchart/" alt="Barchart",title ="Softskill", heights="400", width="600">
+<img src="/journey/" alt="Barchart",title ="Softskill", heights="400", width="600">
+<img src="/todayPie/" alt="Pie Chart",title ="Softskill", heights="400", width="600">
+dictionary:{{dictionary}}
+
+
+
+<!--<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<div id="myDiv", style="height: 370px; width: 30%;"></div>-->
+
+
+
+
+
+
+</body></html>
